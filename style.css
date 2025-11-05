@@ -1,0 +1,146 @@
+/* 1. Импортируем шрифт от Google */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&display=swap');
+
+/* Базовые настройки */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #f0f2f5;
+}
+
+#app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Хедер и Настройки --- */
+.app-header, .app-footer {
+    padding: 16px;
+    background-color: #ffffff;
+    flex-shrink: 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.app-header { border-bottom: 1px solid #ddd; }
+.app-footer { border-top: 1px solid #ddd; }
+
+/* --- Логика переключения режимов --- */
+
+/* По умолчанию режим редактирования скрыт */
+#edit-mode-container {
+    display: none;
+    flex-direction: column;
+    gap: 10px; /* Расстояние между контролами и кнопкой "Применить" */
+}
+
+/* Когда #app-container получает класс .is-editing... */
+#app-container.is-editing #view-mode-container {
+    display: none; /* ...скрываем кнопку "Настроить" */
+}
+#app-container.is-editing #edit-mode-container {
+    display: flex; /* ...показываем режим редактирования */
+}
+
+/* Стилизация контролов +/- */
+.settings-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+#dice-count-display {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    min-width: 40px; /* Чтобы число не прыгало при смене 9 на 10 */
+    text-align: center;
+}
+/* --- Конец логики переключения --- */
+
+
+/* Основная область для кубиков */
+#dice-area {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 20px;       
+    padding: 20px;
+    overflow-y: auto; 
+}
+
+.die {
+    font-family: 'Noto Sans Symbols 2', sans-serif;
+    font-size: 80px; 
+    line-height: 1;
+    color: #333;
+}
+
+/* --- Стили кнопок --- */
+.btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+/* Кнопка настроек (серая) */
+#settings-btn {
+    background-color: #e4e6eb;
+    color: #050505;
+}
+#settings-btn:hover {
+    background-color: #d8dbde;
+}
+
+/* Кнопки +/- (круглые, серые) */
+.btn-circle {
+    width: 60px; /* Фиксированная ширина */
+    height: 60px;
+    padding: 0; /* Убираем внутренний отступ */
+    border-radius: 50%; /* Делаем круглой */
+    font-size: 36px;
+    background-color: #e4e6eb;
+    color: #050505;
+    flex-shrink: 0; /* Запрещаем сжиматься */
+}
+.btn-circle:hover {
+    background-color: #d8dbde;
+}
+
+/* Кнопки "Бросить" и "Применить" (синие) */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Стиль для заблокированной кнопки */
+.btn:disabled {
+    background-color: #cccccc !important; /* !important для перекрытия hover */
+    color: #666666 !important;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Медиа-запрос */
+@media (min-width: 768px) {
+    .die {
+        font-size: 120px; 
+    }
+}

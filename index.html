@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бросок кубиков</title>
+    <!-- Подключаем наш шрифт для скругленных кубиков -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Контейнеру приложения добавим ID для управления
+         глобальным состоянием .is-editing -->
+    <div id="app-container">
+
+        <!-- Верхняя часть: Настройки -->
+        <header class="app-header">
+            
+            <!-- Режим просмотра (по умолчанию) -->
+            <div id="view-mode-container">
+                <button id="settings-btn" class="btn">Настроить</button>
+            </div>
+
+            <!-- Режим редактирования (скрыт) -->
+            <div id="edit-mode-container">
+                <div class="settings-controls">
+                    <button id="decrease-btn" class="btn btn-circle">-</button>
+                    <span id="dice-count-display">2</span>
+                    <button id="increase-btn" class="btn btn-circle">+</button>
+                </div>
+                <button id="apply-btn" class="btn btn-primary">Применить</button>
+            </div>
+
+        </header>
+
+        <!-- Основная часть: Место для кубиков -->
+        <main id="dice-area">
+            <!-- Кубики будут добавлены сюда с помощью JavaScript -->
+        </main>
+
+        <!-- Нижняя часть: Бросок -->
+        <footer class="app-footer">
+            <button id="roll-btn" class="btn btn-primary">Бросить</button>
+        </footer>
+
+    </div>
+
+    <!-- Подключаем наш JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
