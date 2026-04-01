@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const MIN_DICE = 1;
     const MAX_DICE = 10;
     const ANIMATION_DURATION = 500;
-    const FLICKER_INTERVAL = 75;
+    const FLICKER_INTERVAL = 100;
     const BUTTON_LOCK_DURATION = 500;
 
     // Временное хранилище для счетчика
